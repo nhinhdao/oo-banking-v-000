@@ -10,12 +10,12 @@ class Transfer
     end
 
     def validTransfer?
-        @sender.status = "rejected" if @amount > sender.balance
+        @sender.status = "rejected" if @amount > @sender.balance
     end
 
     def transfer
-        sender.balance -= @amount
-        receiver.deposit(amount)
+        @sender.balance -= @amount
+        @receiver.deposit(amount)
     end
 
     def valid?
