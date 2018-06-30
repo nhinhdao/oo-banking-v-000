@@ -12,7 +12,7 @@ class Transfer
     def validTransfer?
         sender.balance - amount > 0
     end
-            
+
 
     def valid?
         @sender.valid? && @receiver.valid?
