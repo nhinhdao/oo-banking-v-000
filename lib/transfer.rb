@@ -13,13 +13,16 @@ class Transfer
         @sender.balance - @amount > 0
     end
 
+    def transfer
+        @sender.balance -= @amount
+    end
 
     def valid?
         @sender.valid? && @receiver.valid?
     end
 
     def execute_transaction
-        if validTransfer? &&  self.valid?
+        if @sender.balance > amount &&  self.valid?
             sender.balance -= amount
             receiver.deposit(amount)
             sender.close_account
