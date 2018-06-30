@@ -10,7 +10,7 @@ class Transfer
     end
 
     def validTransfer?
-        sender.balance - amount > 0
+        sender.balance - @amount > 0
     end
 
 
