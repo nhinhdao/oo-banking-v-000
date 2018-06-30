@@ -1,3 +1,4 @@
+require'pry'
 class Transfer
     # attr_reader :
     attr_accessor :sender, :status, :receiver, :amount
@@ -18,6 +19,7 @@ class Transfer
     end
 
     def execute_transaction
+        binding.pry
         if validTransfer? && self.valid?
                 sender.transfer(amount)
                 receiver.deposit(amount)
