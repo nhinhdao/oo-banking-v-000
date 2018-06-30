@@ -27,6 +27,7 @@ class Transfer
             receiver.deposit(amount)
             @status = "complete"
             sender.close_account
+            "Transaction rejected. Please check your account balance."
         else
             @status = "rejected"
             "Transaction rejected. Please check your account balance."
