@@ -23,8 +23,7 @@ class Transfer
     end
 
     def execute_transaction
-        if validTransfer?
-            if self.valid?
+        if validTransfer? && self.valid?
                 self.transfer
                 @status = "complete"
                 sender.close_account
