@@ -10,10 +10,6 @@ class Transfer
         @status = "pending"
     end
 
-    def validTransfer?
-        @amount < @sender.balance
-    end
-
     def valid?
         @sender.valid? && @receiver.valid?
     end
