@@ -13,24 +13,25 @@ class Transfer
         @amount < @sender.balance
     end
 
-    def transfer(amount)
-        @sender.balance -= amount
-        @receiver.deposit(amount)
-    end
-
     def valid?
         @sender.valid? && @receiver.valid?
     end
 
     def execute_transaction
         if self.valid?
-                self.transfer(amount)
+                @sender.transfer(amount)
+                @receiver.deposit(amount)
                 @status = "complete"
                 @sender.close_account
         else
             @status = "rejected"
             "Transaction rejected. Please check your account balance."
         end
+    end
+
+    def reverse_transfer
+        @sender.deposit(amount)
+        @receiver.transfer(amount)
     end
 
 end
