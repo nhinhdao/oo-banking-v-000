@@ -14,7 +14,7 @@ class Transfer
     end
 
     def transfer
-        @sender -= @amount
+        @sender.balance -= @amount
     end
 
     def valid?
