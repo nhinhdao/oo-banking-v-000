@@ -27,7 +27,6 @@ class Transfer
                 self.transfer
                 @status = "complete"
                 sender.close_account
-            end
         else
             @status = "rejected"
             "Transaction rejected. Please check your account balance."
