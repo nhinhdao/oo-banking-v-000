@@ -19,12 +19,12 @@ class Transfer
     end
 
     def execute_transaction
-        # binding.pry
+        binding.pry
         if validTransfer? && valid?
-                sender.transfer(amount)
-                receiver.deposit(amount)
-                @status = "complete"
-                @sender.close_account
+            sender.transfer(amount)
+            receiver.deposit(amount)
+            @status = "complete"
+            @sender.close_account
         else
             @status = "rejected"
             "Transaction rejected. Please check your account balance."
