@@ -26,7 +26,7 @@ class Transfer
         if validTransfer? && self.valid?
                 self.transfer
                 @status = "complete"
-                sender.close_account
+                @sender.close_account
         else
             @status = "rejected"
             "Transaction rejected. Please check your account balance."
