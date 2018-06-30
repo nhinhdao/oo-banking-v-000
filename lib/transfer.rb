@@ -19,7 +19,7 @@ class Transfer
     end
 
     def execute_transaction
-        binding.pry
+        # binding.pry
         if @status == "pending" && self.valid?
                 sender.transfer(amount)
                 receiver.deposit(amount)
