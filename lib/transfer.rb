@@ -14,7 +14,8 @@ class Transfer
     end
 
     def transfer
-        @sender.balance -= @amount
+        sender.balance -= @amount
+        receiver.deposit(amount)
     end
 
     def valid?
@@ -25,7 +26,6 @@ class Transfer
         if validTransfer?
             if self.valid?
                 self.transfer
-                receiver.deposit(amount)
                 @status = "complete"
                 sender.close_account
             end
